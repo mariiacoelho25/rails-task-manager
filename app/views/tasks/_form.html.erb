@@ -1,0 +1,17 @@
+<!-- app/views/tasks/_form.html.erb -->
+<%= form_with model: task do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :details, class: 'form-label' %>
+    <%= form.text_area :details, class: 'form-control' %>
+  </div>
+  <div class="mb-3 form-check">
+    <%= form.label :completed, class: 'form-check-label' do %>
+      <%= form.check_box :completed, class: 'form-check-input' %> Terminée
+    <% end %>
+  </div>
+  <%= form.submit 'Enregistrer', class: 'btn btn-primary' %>
+<% end %>

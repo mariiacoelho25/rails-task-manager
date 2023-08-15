@@ -1,0 +1,6 @@
+<!-- app/views/tasks/new.html.erb -->
+<h1>Nouvelle tâche</h1>
+
+<%= render 'form', task: @task %>
+
+<%= link_to 'Retour à la liste des tâches', tasks_path, class: 'btn btn-secondary' %>

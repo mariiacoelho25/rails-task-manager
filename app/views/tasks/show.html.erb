@@ -1,0 +1,30 @@
+<!-- app/views/tasks/show.html.erb -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="mb-0">Détails de la tâche</h1>
+        </div>
+        <div class="card-body">
+          <p><strong>Titre :</strong> <%= @task.title %></p>
+          <p><strong>Détails :</strong> <%= @task.details %></p>
+          <p><strong>Terminée :</strong>
+            <%= form_with(model: @task, local: true) do |form| %>
+              <div class="btn-group" role="group" aria-label="Terminée">
+                <button type="submit" class="btn <%= @task.completed ? 'btn-success' : 'btn-danger' %>">
+                  <%= form.submit @task.completed ? 'Terminée' : 'Non Terminée', class: 'btn btn-link' %>
+                </button>
+              </div>
+            <% end %>
+          </p>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Retour à la liste des tâches', tasks_path, class: 'btn btn-secondary' %>
+          <%= link_to 'Modifier', edit_task_path(@task), class: 'btn btn-primary' %>
+          <%= link_to 'Supprimer', task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" }, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
